@@ -1,0 +1,59 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:p="clr-namespace:Camelot.Properties"
+             xmlns:tabs="clr-namespace:Camelot.ViewModels.Implementations.MainWindow.FilePanels.Tabs;assembly=Camelot.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Camelot.Views.Main.Controls.Tabs.TabView">
+
+    <Design.DataContext>
+        <tabs:TabViewModel />
+    </Design.DataContext>
+
+    <StackPanel Orientation="Vertical">
+        <Border Classes="tabBorder">
+            <Grid>
+                <Button Name="TabButton"
+                        Classes="tabButton"
+                        PointerReleased="ButtonOnPointerReleased"
+                        Command="{Binding ActivateCommand}">
+                    <Button.Content>
+                        <Grid Name="TabGrid" DragDrop.AllowDrop="True">
+                            <Grid Height="40" IsVisible="{Binding IsActive}">
+                                <TextBlock Classes="tabNameTextBlock"
+                                           Text="{Binding DirectoryName}" />
+                            </Grid>
+                            <Grid Classes="inactiveTabGrid" Height="40" IsVisible="{Binding !IsActive}">
+                                <TextBlock Classes="tabNameTextBlock inactiveTabNameTextBlock"
+                                           Text="{Binding DirectoryName}" />
+                            </Grid>
+                        </Grid>
+                    </Button.Content>
+
+                    <Button.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="{x:Static p:Resources.NewTab}" Command="{Binding NewTabCommand}" />
+                            <MenuItem Header="{x:Static p:Resources.DuplicateOnOppositePanel}" Command="{Binding NewTabOnOppositePanelCommand}" />
+                            <MenuItem Header="{x:Static p:Resources.CloseTab}" Command="{Binding CloseTabCommand}" />
+                            <MenuItem Header="{x:Static p:Resources.CloseTabsToTheLeft}" Command="{Binding CloseTabsToTheLeftCommand}" />
+                            <MenuItem Header="{x:Static p:Resources.CloseTabsToTheRight}" Command="{Binding CloseTabsToTheRightCommand}" />
+                            <MenuItem Header="{x:Static p:Resources.CloseAllButThis}" Command="{Binding CloseAllTabsButThisCommand}" />
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+
+                <Rectangle Classes="tabRectangle tabRectangleInactive" Height="1" Margin="0,40,0,0"
+                           IsVisible="{Binding !IsActive}" />
+            </Grid>
+        </Border>
+
+        <Grid>
+            <Rectangle Classes="tabRectangle" Height="2" />
+            <Rectangle Classes="tabRectangle tabRectangleActive"
+                       Height="2" IsVisible="{Binding IsActive}" />
+            <Rectangle Classes="tabRectangle tabRectangleGloballyActive"
+                       Height="2" IsVisible="{Binding IsGloballyActive}" />
+        </Grid>
+    </StackPanel>
+</UserControl>

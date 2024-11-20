@@ -1,0 +1,36 @@
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 3%
+    patch: off
+  notify:
+    gitter:
+      default:
+        url: "https://webhooks.gitter.im/e/00d5f9c4fa5d8b7f29f3"
+        threshold: 0%
+ignore:
+  - "tests/**/*"
+  - "src/Camelot/**/*"
+  - "src/Camelot/*"
+  - "src/Camelot.Avalonia/**/*"
+  - "src/Camelot.WindowsInstaller/**/*"
+  - "src/Camelot.DataAccess.Models/*"
+  - "src/Camelot.ViewModels/Configuration/*"
+  - "src/Camelot.ViewModels.Windows/WinApi/*"
+  - "src/Camelot.Services.Abstractions/**/*"
+  - "src/Camelot.DataAccess.LiteDb/**/*"
+  - "src/Camelot.DataAccess.LiteDb/*"
+  - "src/Camelot.DataAccess/**/*"
+  - "src/Camelot.Services.FileSystemWatcher/Configuration/*"
+  - "src/Camelot.Operations/Models/*"
+  - "src/Camelot.Services.Environment/**/*"
+  - "src/Camelot.Services.Archives/Implementations/*"
+  - "src/Camelot.ViewModels/Factories/Implementations/BitmapFactory.cs"
+  - "src/Camelot.Services.FileSystemWatcher/Implementations/FileSystemWatcherFactory.cs"
+  - "src/Camelot.Services.FileSystemWatcher/Implementations/FileSystemWatcherAdapter.cs"
+  - "src/Camelot.Services.Windows/WinApi/*"
+  - "src/Camelot.Services.Mac/Configuration/*"
+  - "src/Camelot.Services.Linux/Configuration/*"
+  - "src/Camelot.Services/Configuration/*"

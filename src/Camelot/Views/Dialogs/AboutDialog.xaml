@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:Camelot.Properties"
+        xmlns:dialogs="clr-namespace:Camelot.ViewModels.Implementations.Dialogs;assembly=Camelot.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="450" Height="200"
+        x:Class="Camelot.Views.Dialogs.AboutDialog"
+        Title="{x:Static p:Resources.AboutCamelotTitle}">
+
+    <Design.DataContext>
+        <dialogs:AboutDialogViewModel />
+    </Design.DataContext>
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Classes="dialogTextBlock">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}Camelot v{0}">
+                    <Binding Path="ApplicationVersion" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+
+        <TextBlock Classes="dialogTextBlock" Text="{x:Static p:Resources.AboutPage}" />
+
+        <TextBlock Classes="dialogTextBlock">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0}: {1}">
+                    <Binding Source="{x:Static p:Resources.Maintainers}"/>
+                    <Binding Path="Maintainers" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+
+        <Button Classes="dialogButton"
+                IsDefault="True"
+                Command="{Binding OpenRepositoryCommand}"
+                Content="{x:Static p:Resources.GitHub}"
+                Width="100" />
+    </StackPanel>
+
+</Window>

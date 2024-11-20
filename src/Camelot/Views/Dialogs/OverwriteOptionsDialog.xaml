@@ -1,0 +1,143 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:Camelot.Properties"
+        xmlns:dialogs="clr-namespace:Camelot.ViewModels.Implementations.Dialogs;assembly=Camelot.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="850" Height="420"
+        x:Class="Camelot.Views.Dialogs.OverwriteOptionsDialog"
+        Title="{x:Static p:Resources.OverwriteOptionsTitle}">
+
+    <Design.DataContext>
+        <dialogs:OverwriteOptionsDialogViewModel />
+    </Design.DataContext>
+
+    <Border Padding="20">
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*">
+            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+                <Image Width="25" Height="25">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="{DynamicResource AlternativeThemeForegroundBrush}"
+                                                 Geometry="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z" />
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+                <TextBlock Classes="boldStyleTextBlock dialogTitleTextBlock">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0} &quot;{1}&quot;?">
+                            <Binding Source="{x:Static p:Resources.ReplaceFile}"/>
+                            <Binding Path="ReplaceWithFileViewModel.Name" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Margin="0,15" Classes="overWriteDialogTextBlock"
+                       Text="{Binding DestinationDirectoryName, StringFormat={x:Static p:Resources.ReplaceFileDestinationDirectory}}" />
+
+            <Grid Row="2" RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*">
+                <Image Width="64" Height="64" Grid.RowSpan="3">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="{DynamicResource AlternativeThemeForegroundBrush}"
+                                                 Geometry="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z" />
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+                <TextBlock Grid.Column="1" Text="{x:Static p:Resources.OriginalFile}" Classes="overWriteDialogTextBlock boldStyleTextBlock" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Classes="overWriteDialogTextBlock">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static p:Resources.Size}"/>
+                            <Binding Path="OriginalFileViewModel.FormattedSize" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" Classes="overWriteDialogTextBlock">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static p:Resources.LastModified}"/>
+                            <Binding Path="OriginalFileViewModel.LastModifiedDateTime" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </Grid>
+            <Grid Row="2" Column="1" RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*">
+                <Image Width="64" Height="64" Grid.RowSpan="3">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="{DynamicResource AlternativeThemeForegroundBrush}"
+                                                 Geometry="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z" />
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+                <TextBlock Grid.Column="1" Text="{x:Static p:Resources.ReplaceWith}" Classes="overWriteDialogTextBlock boldStyleTextBlock" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Classes="overWriteDialogTextBlock">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static p:Resources.Size}"/>
+                            <Binding Path="ReplaceWithFileViewModel.FormattedSize" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" Classes="overWriteDialogTextBlock">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static p:Resources.LastModified}"/>
+                            <Binding Path="ReplaceWithFileViewModel.LastModifiedDateTime" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </Grid>
+
+            <Expander Grid.Row="3" Grid.ColumnSpan="2" Margin="0,15,0,10">
+                <Expander.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="{Binding NewFileName}" MaxWidth="500" Margin="0,12" />
+                        <Button Content="{x:Static p:Resources.Rename}" Command="{Binding RenameCommand}"
+                                Classes="dialogButton alternativeColorDialogButton" />
+                    </StackPanel>
+                </Expander.Content>
+
+                <Expander.Header>
+                    <TextBlock Classes="overWriteDialogTextBlock" Text="{x:Static p:Resources.SelectNewNameForDestination}" />
+                </Expander.Header>
+            </Expander>
+
+            <CheckBox Grid.Row="4" Grid.ColumnSpan="2" IsChecked="{Binding ShouldApplyToAll}"
+                      IsVisible="{Binding AreMultipleFilesAvailable}">
+                <CheckBox.Content>
+                    <TextBlock Classes="overWriteDialogTextBlock" Margin="5,0,0,0"
+                               Text="{x:Static p:Resources.ApplyActionToTheAllFilesAndFolders}" />
+                </CheckBox.Content>
+            </CheckBox>
+
+            <Grid Row="5" ColumnSpan="2" HorizontalAlignment="Center" Margin="0,15,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="{x:Static p:Resources.Cancel}"
+                            Command="{Binding CloseCommand}"
+                            Classes="dialogButton transparentDialogButton" />
+                    <Button Content="{x:Static p:Resources.Skip}"
+                            Command="{Binding SkipCommand}"
+                            Classes="dialogButton alternativeColorDialogButton"
+                            IsVisible="{Binding AreMultipleFilesAvailable}" />
+                    <Button Content="{x:Static p:Resources.Replace}"
+                            Command="{Binding ReplaceCommand}"
+                            Classes="dialogButton" />
+                    <Button Content="{x:Static p:Resources.ReplaceIfOlder}"
+                            Command="{Binding ReplaceIfOlderCommand}"
+                            Classes="dialogButton" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+
+</Window>

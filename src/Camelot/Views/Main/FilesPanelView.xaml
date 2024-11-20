@@ -1,0 +1,379 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:p="clr-namespace:Camelot.Properties"
+             xmlns:filePanels="clr-namespace:Camelot.ViewModels.Implementations.MainWindow.FilePanels;assembly=Camelot.ViewModels"
+             xmlns:controls="clr-namespace:Camelot.Views.Main.Controls"
+             xmlns:views="clr-namespace:Camelot.Views"
+             xmlns:converters="clr-namespace:Camelot.Converters"
+             xmlns:enums="clr-namespace:Camelot.Services.Abstractions.Models.Enums;assembly=Camelot.Services.Abstractions"
+             xmlns:enumsViewModels="clr-namespace:Camelot.ViewModels.Implementations.MainWindow.FilePanels.Enums;assembly=Camelot.ViewModels"
+             xmlns:tabs="clr-namespace:Camelot.Views.Main.Controls.Tabs"
+             xmlns:nodes="clr-namespace:Camelot.ViewModels.Implementations.MainWindow.FilePanels.Nodes;assembly=Camelot.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Camelot.Views.Main.FilesPanelView">
+
+    <Design.DataContext>
+        <filePanels:FilesPanelViewModel />
+    </Design.DataContext>
+
+    <UserControl.Resources>
+        <converters:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+    </UserControl.Resources>
+
+    <Grid Classes="defaultBackgroundColorGrid" RowDefinitions="Auto,Auto,*,Auto,Auto">
+
+        <Grid Margin="7,0,0,0"
+              ColumnDefinitions="Auto,Auto,Auto,Auto,*">
+            <Button Classes="iconButton"
+                    Command="{Binding SelectedTab.GoToPreviousDirectoryCommand}">
+                <Image Classes="iconImage">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="{DynamicResource MainWindowForegroundBrush}"
+                                                 Geometry="M256 504C119 504 8 393 8 256S119 8 256 8s248 111 248 248-111 248-248 248zm116-292H256v-70.9c0-10.7-13-16.1-20.5-8.5L121.2 247.5c-4.7 4.7-4.7 12.2 0 16.9l114.3 114.9c7.6 7.6 20.5 2.2 20.5-8.5V300h116c6.6 0 12-5.4 12-12v-64c0-6.6-5.4-12-12-12z"/>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+
+                <ToolTip.Tip>
+                    <TextBlock Classes="mainWindowTextBlock" Text="{x:Static p:Resources.GoBack}" />
+                </ToolTip.Tip>
+            </Button>
+
+            <Button Grid.Column="1" Classes="iconButton"
+                    Command="{Binding SelectedTab.GoToNextDirectoryCommand}">
+                <Image Classes="iconImage">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="{DynamicResource MainWindowForegroundBrush}"
+                                                 Geometry="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zM140 300h116v70.9c0 10.7 13 16.1 20.5 8.5l114.3-114.9c4.7-4.7 4.7-12.2 0-16.9l-114.3-115c-7.6-7.6-20.5-2.2-20.5 8.5V212H140c-6.6 0-12 5.4-12 12v64c0 6.6 5.4 12 12 12z"/>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+
+                <ToolTip.Tip>
+                    <TextBlock Classes="mainWindowTextBlock" Text="{x:Static p:Resources.GoForward}" />
+                </ToolTip.Tip>
+            </Button>
+
+            <Button Grid.Column="2"
+                    Classes="iconButton"
+                    Command="{Binding RefreshCommand}">
+                <Image Classes="iconImage">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="{DynamicResource MainWindowForegroundBrush}"
+                                                 Geometry="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"/>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+
+                <ToolTip.Tip>
+                    <TextBlock Classes="mainWindowTextBlock" Text="{x:Static p:Resources.Reload}" />
+                </ToolTip.Tip>
+            </Button>
+
+            <Button Grid.Column="3"
+                    Classes="iconButton"
+                    Command="{Binding GoToParentDirectoryCommand}">
+                <Image Classes="iconImage">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="{DynamicResource MainWindowForegroundBrush}"
+                                                 Geometry="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+
+                <ToolTip.Tip>
+                    <TextBlock Classes="mainWindowTextBlock" Text="{x:Static p:Resources.GoToParentDirectory}" />
+                </ToolTip.Tip>
+            </Button>
+
+            <controls:DirectorySelectorView Name="DirectorySelectorView" Grid.Column="4"
+                                            DataContext="{Binding DirectorySelectorViewModel}" />
+        </Grid>
+
+        <tabs:TabsListView Grid.Row="1"
+                           DataContext="{Binding TabsListViewModel}" />
+
+        <DataGrid x:Name="FilesDataGrid" Grid.Row="2"
+                  Items="{Binding FileSystemNodes}"
+                  DragDrop.AllowDrop="True"
+                  KeyDown="OnDataGridKeyDown"
+                  DoubleTapped="OnDataGridDoubleTapped"
+                  CellPointerPressed="OnDataGridCellPointerPressed"
+                  SelectionChanged="OnDataGridSelectionChanged">
+
+            <DataGrid.Resources>
+                <Template x:Key="RowContextMenu">
+                    <ContextMenu Classes="smallContextMenu"
+                                 ContextMenuOpening="DataGridOnContextMenuOpening">
+                        <MenuItem Header="{x:Static p:Resources.Open}" Command="{Binding OpenCommand}" IsVisible="{Binding !ShouldShowOpenSubmenu}" />
+                        <MenuItem Header="{x:Static p:Resources.OpenWith}" Command="{Binding OpenWithCommand}" IsVisible="{Binding !ShouldShowOpenSubmenu}" />
+                        <MenuItem Header="{x:Static p:Resources.Open}" IsVisible="{Binding ShouldShowOpenSubmenu}">
+                            <MenuItem Header="{x:Static p:Resources.Open}" Command="{Binding OpenCommand}" />
+                            <MenuItem Header="{x:Static p:Resources.OpenWith}" Command="{Binding OpenWithCommand}" />
+                            <MenuItem Header="{x:Static p:Resources.OpenInNewTab}" Command="{Binding OpenInNewTabCommand}" />
+                            <MenuItem Header="{x:Static p:Resources.OpenInNewTabOnOppositePanel}" Command="{Binding OpenInNewTabOnOppositePanelCommand}" />
+                        </MenuItem>
+                        <MenuItem Header="{x:Static p:Resources.Pack}" Command="{Binding PackCommand}" />
+                        <MenuItem Header="{x:Static p:Resources.Extract}" IsVisible="{Binding IsArchive}" >
+                            <MenuItem Header="{x:Static p:Resources.ExtractArchiveHere}"
+                                      Command="{Binding ExtractCommand}" CommandParameter="{x:Static enumsViewModels:ExtractCommandType.CurrentDirectory}" />
+                            <MenuItem Header="{x:Static p:Resources.ExtractArchiveToNewDirectory}"
+                                      Command="{Binding ExtractCommand}" CommandParameter="{x:Static enumsViewModels:ExtractCommandType.NewDirectory}" />
+                            <MenuItem Header="{x:Static p:Resources.SelectDirectoryForExtraction}"
+                                      Command="{Binding ExtractCommand}" CommandParameter="{x:Static enumsViewModels:ExtractCommandType.SelectDirectory}" />
+                        </MenuItem>
+                        <MenuItem Header="{x:Static p:Resources.Rename}" Command="{Binding RenameInDialogCommand}" />
+                        <MenuItem Header="{x:Static p:Resources.Copy}" Command="{Binding CopyCommand}" />
+                        <MenuItem Header="{x:Static p:Resources.Move}" Command="{Binding MoveCommand}" />
+                        <MenuItem Header="{x:Static p:Resources.Delete}" Command="{Binding DeleteCommand}"/>
+                        <MenuItem Header="{x:Static p:Resources.CopyToClipboard}" Command="{Binding CopyToClipboardCommand}"/>
+                        <MenuItem Name="PasteFromClipboard"
+                                  IsVisible="False"
+                                  Header="{x:Static p:Resources.PasteFromClipboard}"
+                                  Command="{Binding $parent[DataGrid].DataContext.ClipboardOperationsMediator.PasteFromClipboardCommand}" />
+                        <MenuItem Header="{x:Static p:Resources.Create}">
+                            <MenuItem Header="{x:Static p:Resources.Directory}"
+                                      Command="{Binding $parent[views:MainWindow].DataContext.OperationsViewModel.CreateNewDirectoryCommand}" />
+                            <MenuItem Header="{x:Static p:Resources.File}"
+                                      Command="{Binding $parent[views:MainWindow].DataContext.OperationsViewModel.CreateNewFileCommand}" />
+                        </MenuItem>
+                        <MenuItem Header="{x:Static p:Resources.ShowProperties}" Command="{Binding ShowPropertiesCommand}" />
+                    </ContextMenu>
+                </Template>
+            </DataGrid.Resources>
+
+            <DataGrid.Styles>
+                <Style Selector="DataGridRow">
+                    <Setter Property="ContextMenu" Value="{StaticResource RowContextMenu}" />
+                </Style>
+            </DataGrid.Styles>
+
+            <DataGrid.KeyBindings>
+                <KeyBinding Gesture="Ctrl+C" Command="{Binding ClipboardOperationsViewModel.CopyToClipboardCommand}" />
+                <KeyBinding Gesture="Meta+C" Command="{Binding ClipboardOperationsViewModel.CopyToClipboardCommand}" />
+                <KeyBinding Gesture="Ctrl+V" Command="{Binding ClipboardOperationsViewModel.PasteFromClipboardCommand}" />
+                <KeyBinding Gesture="Meta+V" Command="{Binding ClipboardOperationsViewModel.PasteFromClipboardCommand}" />
+                <KeyBinding Gesture="Enter" Command="{Binding $self.SelectedItem.OpenCommand}" />
+                <KeyBinding Gesture="F4" Command="{Binding OperationsViewModel.OpenInDefaultEditorCommand}" />
+                <KeyBinding Gesture="F5" Command="{Binding OperationsViewModel.CopyCommand}" />
+                <KeyBinding Gesture="F6" Command="{Binding OperationsViewModel.MoveCommand}" />
+                <KeyBinding Gesture="F7" Command="{Binding OperationsViewModel.CreateNewDirectoryCommand}" />
+                <KeyBinding Gesture="F8" Command="{Binding OperationsViewModel.MoveToTrashCommand}" />
+                <KeyBinding Gesture="Shift+Delete" Command="{Binding OperationsViewModel.RemoveCommand}" />
+                <KeyBinding Gesture="Shift+Back" Command="{Binding OperationsViewModel.RemoveCommand}" />
+                <KeyBinding Gesture="Left" Command="{Binding SelectedTab.GoToPreviousDirectoryCommand}" />
+                <KeyBinding Gesture="Right" Command="{Binding SelectedTab.GoToNextDirectoryCommand}" />
+            </DataGrid.KeyBindings>
+
+            <DataGrid.ContextMenu>
+                <ContextMenu Classes="smallContextMenu" ContextMenuOpening="DataGridOnContextMenuOpening">
+                    <MenuItem Name="PasteFromClipboard"
+                              IsVisible="False"
+                              Header="{x:Static p:Resources.PasteFromClipboard}"
+                              Command="{Binding PasteFromClipboardCommand}" />
+                    <MenuItem Header="{x:Static p:Resources.Create}">
+                        <MenuItem Header="{x:Static p:Resources.Directory}"
+                                  Command="{Binding OperationsViewModel.CreateNewDirectoryCommand}" />
+                        <MenuItem Header="{x:Static p:Resources.File}"
+                                  Command="{Binding OperationsViewModel.CreateNewFileCommand}" />
+                    </MenuItem>
+                    <MenuItem Header="{x:Static p:Resources.ShowProperties}" Command="{Binding CurrentNode.ShowPropertiesCommand}" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DataGridCell}}">
+                                <ContentControl.DataTemplates>
+                                    <DataTemplate DataType="{x:Type nodes:DirectoryViewModel}">
+                                        <Image Classes="iconImage" Margin="10,4,3,3" VerticalAlignment="Center">
+                                            <Image.Source>
+                                                <DrawingImage>
+                                                    <DrawingImage.Drawing>
+                                                        <GeometryDrawing Brush="{DynamicResource MainWindowForegroundBrush}"
+                                                                         Geometry="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"/>
+                                                    </DrawingImage.Drawing>
+                                                </DrawingImage>
+                                            </Image.Source>
+                                        </Image>
+                                    </DataTemplate>
+
+                                    <DataTemplate DataType="{x:Type nodes:FileViewModel}">
+                                        <controls:FileIconView />
+                                    </DataTemplate>
+                                </ContentControl.DataTemplates>
+                            </ContentControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="5*">
+                    <DataGridTemplateColumn.Header>
+                        <Button Command="{Binding SortFilesCommand}"
+                                CommandParameter="{x:Static enums:SortingMode.Name}" Classes="columnHeaderButton">
+                            <Grid ColumnDefinitions="*,Auto,Auto,*">
+                                <controls:DataGridHeaderArrowView
+                                    IsVisible="{Binding SelectedTab.SortingViewModel.SortingColumn, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static enums:SortingMode.Name}}" />
+
+                                <TextBlock Grid.Column="2" Classes="dataGridColumnHeaderTextBlock" Text="{x:Static p:Resources.Name}" />
+                            </Grid>
+                        </Button>
+                    </DataGridTemplateColumn.Header>
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DataGridCell}}">
+                                <ContentControl.DataTemplates>
+                                    <DataTemplate DataType="{x:Type nodes:DirectoryViewModel}">
+                                        <Grid>
+                                            <Grid IsVisible="{Binding !IsParentDirectory}">
+                                                <TextBlock Classes="filePanelTextBlock" Text="{Binding Name}" IsVisible="{Binding !IsEditing}"
+                                                           Name="NameTextBlock" />
+                                                <TextBox Classes="fileNameTextBox" Text="{Binding FullName}" IsVisible="{Binding IsEditing}"
+                                                         LostFocus="OnFullNameTextBoxLostFocus">
+                                                    <TextBox.KeyBindings>
+                                                        <KeyBinding Gesture="Enter" Command="{Binding RenameCommand}" />
+                                                    </TextBox.KeyBindings>
+                                                </TextBox>
+                                            </Grid>
+                                            <Grid IsVisible="{Binding IsParentDirectory}">
+                                                <TextBlock Classes="filePanelTextBlock" Text="[..]" />
+                                            </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+
+                                    <DataTemplate DataType="{x:Type nodes:FileViewModel}">
+                                        <Grid>
+                                            <TextBlock Classes="filePanelTextBlock" Text="{Binding Name}" IsVisible="{Binding !IsEditing}"
+                                                       Name="NameTextBlock" />
+                                            <TextBox Classes="fileNameTextBox" Text="{Binding FullName}" IsVisible="{Binding IsEditing}"
+                                                     LostFocus="OnFullNameTextBoxLostFocus">
+                                                <TextBox.KeyBindings>
+                                                    <KeyBinding Gesture="Enter" Command="{Binding RenameCommand}" />
+                                                </TextBox.KeyBindings>
+                                            </TextBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ContentControl.DataTemplates>
+                            </ContentControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="1*">
+                    <DataGridTemplateColumn.Header>
+                        <Button Command="{Binding SortFilesCommand}"
+                                CommandParameter="{x:Static enums:SortingMode.Extension}" Classes="columnHeaderButton">
+                            <Grid ColumnDefinitions="*,Auto,Auto,*">
+                                <controls:DataGridHeaderArrowView
+                                    IsVisible="{Binding SelectedTab.SortingViewModel.SortingColumn, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static enums:SortingMode.Extension}}" />
+
+                                <TextBlock Grid.Column="2" Classes="dataGridColumnHeaderTextBlock" Text="{x:Static p:Resources.Extension}" />
+                            </Grid>
+                        </Button>
+                    </DataGridTemplateColumn.Header>
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DataGridCell}}">
+                                <ContentControl.DataTemplates>
+                                    <DataTemplate DataType="{x:Type nodes:DirectoryViewModel}">
+                                        <TextBlock Text="" />
+                                    </DataTemplate>
+
+                                    <DataTemplate DataType="{x:Type nodes:FileViewModel}">
+                                        <TextBlock Classes="filePanelTextBlock" Text="{Binding Extension}"
+                                                   IsVisible="{Binding !IsEditing}" />
+                                    </DataTemplate>
+                                </ContentControl.DataTemplates>
+                            </ContentControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="1*">
+                    <DataGridTemplateColumn.Header>
+                        <Button Command="{Binding SortFilesCommand}"
+                                CommandParameter="{x:Static enums:SortingMode.Size}" Classes="columnHeaderButton">
+                            <Grid ColumnDefinitions="*,Auto,Auto,*">
+                                <controls:DataGridHeaderArrowView
+                                    IsVisible="{Binding SelectedTab.SortingViewModel.SortingColumn, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static enums:SortingMode.Size}}" />
+
+                                <TextBlock Grid.Column="2" Classes="dataGridColumnHeaderTextBlock" Text="{x:Static p:Resources.Size}" />
+                            </Grid>
+                        </Button>
+                    </DataGridTemplateColumn.Header>
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DataGridCell}}">
+                                <ContentControl.DataTemplates>
+                                    <DataTemplate DataType="{x:Type nodes:DirectoryViewModel}">
+                                        <TextBlock Classes="filePanelTextBlock" Text="{x:Static p:Resources.DirectoryTemplate}" />
+                                    </DataTemplate>
+
+                                    <DataTemplate DataType="{x:Type nodes:FileViewModel}">
+                                        <TextBlock Classes="filePanelTextBlock" Text="{Binding FormattedSize}" />
+                                    </DataTemplate>
+                                </ContentControl.DataTemplates>
+                            </ContentControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="2*">
+                    <DataGridTemplateColumn.Header>
+                        <Button Command="{Binding SortFilesCommand}"
+                                CommandParameter="{x:Static enums:SortingMode.Date}" Classes="columnHeaderButton">
+                            <Grid ColumnDefinitions="*,Auto,Auto,*">
+                                <controls:DataGridHeaderArrowView
+                                    IsVisible="{Binding SelectedTab.SortingViewModel.SortingColumn, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static enums:SortingMode.Date}}" />
+
+                                <TextBlock Grid.Column="2" Classes="dataGridColumnHeaderTextBlock" Text="{x:Static p:Resources.Date}" />
+                            </Grid>
+                        </Button>
+                    </DataGridTemplateColumn.Header>
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Classes="filePanelTextBlock" Text="{Binding LastModifiedDateTime}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="3" ColumnDefinitions="Auto,*">
+            <Border Classes="selectionBorder" IsVisible="{Binding AreAnyFileSystemNodesSelected}">
+                <TextBlock Classes="selectionInfoTextBlock">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{x:Static p:Resources.SelectFromFilesAndDirectories}">
+                            <Binding Path="SelectedFilesCount" />
+                            <Binding Path="SelectedFilesSize" />
+                            <Binding Path="SelectedDirectoriesCount" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </Border>
+        </Grid>
+
+        <controls:SearchView Grid.Row="4" DataContext="{Binding SearchViewModel}" />
+    </Grid>
+
+</UserControl>

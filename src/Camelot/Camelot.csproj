@@ -1,0 +1,159 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <Version>0.3.0</Version>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>camelot</AssemblyName>
+    <PackagePrefix>$([System.Text.RegularExpressions.Regex]::Replace($(AssemblyName), "\B[A-Z]", "-$0").ToLower())</PackagePrefix>
+    <PackageName>$(PackagePrefix)_$(Version)</PackageName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CFBundleName>Camelot</CFBundleName>
+    <CFBundleDisplayName>Camelot</CFBundleDisplayName>
+    <CFBundleIdentifier>com.camelot</CFBundleIdentifier>
+    <CFBundleVersion>0.3.0</CFBundleVersion>
+    <CFBundleShortVersionString>0.3.0</CFBundleShortVersionString>
+    <CFBundlePackageType>AAPL</CFBundlePackageType>
+    <CFBundleSignature>????</CFBundleSignature>
+    <CFBundleExecutable>Camelot</CFBundleExecutable>
+    <CFBundleIconFile>/Assets/logo.icns</CFBundleIconFile>
+    <NSPrincipalClass>NSApplication</NSPrincipalClass>
+    <NSHighResolutionCapable>true</NSHighResolutionCapable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="**\*.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <AvaloniaResource Include="**\*.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Include="Assets\**" />
+    <AvaloniaResource Update="Views\Main\AboutDialog.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Views\Main\Dialogs\RemoveNodesConfirmationDialog.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <AvaloniaResource Update="Views\Controls\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Views\Main\OperationsStateView.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Controls\MenuView.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Views\Main\OperationsStates\DataGridHeaderArrowView.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <Compile Update="Views\Main\OperationsStates\ActiveOperationsView.xaml.cs">
+      <DependentUpon>ActiveOperationsView.xaml</DependentUpon>
+    </Compile>
+    <AvaloniaResource Update="Views\Main\OperationsStates\InactiveOperationsView.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <Compile Update="Views\Main\OperationsStates\InactiveOperationsView.xaml.cs">
+      <DependentUpon>InactiveOperationsView.xaml</DependentUpon>
+    </Compile>
+    <AvaloniaResource Update="Views\Main\OperationsStates\OperationsStateView.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Views\Main\Controls\DataGridHeaderArrowView.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <Compile Update="Views\Main\Controls\DataGridHeaderArrowView.xaml.cs">
+      <DependentUpon>DataGridHeaderArrowView.xaml</DependentUpon>
+    </Compile>
+    <AvaloniaResource Update="Views\Main\Controls\TabView.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Views\Main\TopOperationsView.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <Compile Update="Views\Main\TopOperationsView.xaml.cs">
+      <DependentUpon>TopOperationsView.xaml</DependentUpon>
+    </Compile>
+    <AvaloniaResource Update="Views\Main\Settings\DataGridHeaderArrowView.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Views\Main\Dialogs\FileSystemNodeInformationDialog.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <Compile Update="Views\Main\Controls\MainNodeInfoTabView.xaml.cs">
+      <DependentUpon>MainNodeInfoTabView.xaml</DependentUpon>
+    </Compile>
+    <AvaloniaResource Update="Views\Main\Dialogs\DirectoryDialog.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <Compile Update="Views\Dialogs\AboutDialog.xaml.cs">
+      <DependentUpon>AboutDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dialogs\CreateNodeDialog.xaml.cs">
+      <DependentUpon>CreateNodeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dialogs\OverwriteOptionsDialog.xaml.cs">
+      <DependentUpon>OverwriteOptionsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dialogs\RemoveNodesConfirmationDialog.xaml.cs">
+      <DependentUpon>RemoveNodesConfirmationDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dialogs\SettingsDialog.xaml.cs">
+      <DependentUpon>SettingsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dialogs\FileInformationDialog.xaml.cs">
+      <DependentUpon>FileInformationDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dialogs\DirectoryInformationDialog.xaml.cs">
+      <DependentUpon>DirectoryInformationDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dialogs\Settings\TerminalSettingsView.xaml.cs">
+      <DependentUpon>TerminalSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dialogs\Settings\General\LanguageSettingsView.xaml.cs">
+      <DependentUpon>LanguageSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dialogs\Settings\GeneralSettingsView.xaml.cs">
+      <DependentUpon>GeneralSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dialogs\OpenWithDialog.xaml.cs">
+	  <DependentUpon>OpenWithDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Main\Drives\DriveView.xaml.cs">
+      <DependentUpon>DriveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Main\Directories\FavouriteDirectoriesListView.xaml.cs">
+      <DependentUpon>FavouriteDirectoriesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dialogs\OpenWith\ApplicationView.xaml.cs">
+      <DependentUpon>ApplicationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dialogs\Settings\General\ThemeSettingsView.xaml.cs">
+      <DependentUpon>ThemeSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Main\OperationsStates\OperationsStatesListsView.xaml.cs">
+      <DependentUpon>OperationsStatesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Main\Controls\DirectorySelectorView.xaml.cs">
+      <DependentUpon>DirectorySelectorView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

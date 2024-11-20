@@ -1,0 +1,39 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:Camelot.Properties"
+        xmlns:dialogs="clr-namespace:Camelot.ViewModels.Implementations.Dialogs;assembly=Camelot.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Camelot.Views.Dialogs.RemoveNodesConfirmationDialog"
+        Width="600" Height="300"
+        Title="{x:Static p:Resources.FilesRemovingConfirmationTitle}">
+
+    <Design.DataContext>
+        <dialogs:RemoveNodesConfirmationDialogViewModel />
+    </Design.DataContext>
+
+    <Grid RowDefinitions="Auto,Auto,Auto"
+          HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Classes="dialogTextBlock" Margin="0,0,0,10"  IsVisible="{Binding IsRemovingToTrash}"
+                   Text="{Binding FilesCount, StringFormat={x:Static p:Resources.RemovingFilesToTrash}}" />
+        <TextBlock Classes="dialogTextBlock" Margin="0,0,0,10" IsVisible="{Binding !IsRemovingToTrash}"
+                   Text="{Binding FilesCount, StringFormat={x:Static p:Resources.PermanentlyRemoveFiles}}" />
+
+        <ItemsControl Grid.Row="1" Items="{Binding Files}" IsVisible="{Binding ShouldShowFilesList}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Classes="dialogTextBlock" Text="{Binding .}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Classes="dialogButton transparentDialogButton" Content="{x:Static p:Resources.Cancel}" Command="{Binding CancelCommand}" />
+            <Button Name="RemoveButton" Classes="dialogButton"
+                    IsDefault="True"
+                    Content="{x:Static p:Resources.Delete}"
+                    Command="{Binding OkCommand}" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutCamelotTitle" xml:space="preserve">
+    <value>About Camelot</value>
+  </data>
+  <data name="AboutHeader" xml:space="preserve">
+    <value>_About</value>
+  </data>
+  <data name="AboutPage" xml:space="preserve">
+    <value>Camelot is dual-panel file manager written in C#</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="ApplyActionToTheAllFilesAndFolders" xml:space="preserve">
+    <value>Apply this action to the all files and folders</value>
+  </data>
+  <data name="ArgumentsWithColon" xml:space="preserve">
+    <value>Arguments:</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CloseAllButThis" xml:space="preserve">
+    <value>Close all but this</value>
+  </data>
+  <data name="CloseTab" xml:space="preserve">
+    <value>Close tab</value>
+  </data>
+  <data name="CloseTabsToTheLeft" xml:space="preserve">
+    <value>Close tabs to the left</value>
+  </data>
+  <data name="CloseTabsToTheRight" xml:space="preserve">
+    <value>Close tabs to the right</value>
+  </data>
+  <data name="CommandWithColon" xml:space="preserve">
+    <value>Command:</value>
+  </data>
+  <data name="ConfigurationHeader" xml:space="preserve">
+    <value>_Configuration</value>
+  </data>
+  <data name="CopiedFileFromTo" xml:space="preserve">
+    <value>Copied {0} to {1}</value>
+  </data>
+  <data name="CopiedFilesFromAndDirectoriesTo" xml:space="preserve">
+    <value>Copied {0} files and {1} directories to {2}</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="CopyingFileFromTo" xml:space="preserve">
+    <value>Copying {0} to {1}</value>
+  </data>
+  <data name="CopyingFilesFromAndDirectoriesTo" xml:space="preserve">
+    <value>Copying {0} files and {1} directories to {2}</value>
+  </data>
+  <data name="CopyToClipboard" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateDirectoryTitle" xml:space="preserve">
+    <value>Create directory</value>
+  </data>
+  <data name="CreationDateWithColon" xml:space="preserve">
+    <value>Creation date:</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeletedFileFromTo" xml:space="preserve">
+    <value>Deleted {0} from {1}</value>
+  </data>
+  <data name="DeletedFilesAndDirectories" xml:space="preserve">
+    <value>Deleted {0} files and {1} directories from {2}</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>Directory</value>
+  </data>
+  <data name="DirectoryInformationTitle" xml:space="preserve">
+    <value>Directory information</value>
+  </data>
+  <data name="DirectoryTemplate" xml:space="preserve">
+    <value>&lt;DIR&gt;</value>
+  </data>
+  <data name="EnterDirectoryNameWithColon" xml:space="preserve">
+    <value>Enter directory name:</value>
+  </data>
+  <data name="ExitHeader" xml:space="preserve">
+    <value>_Exit</value>
+  </data>
+  <data name="Extension" xml:space="preserve">
+    <value>Extension</value>
+  </data>
+  <data name="FailedCopyFileFromTo" xml:space="preserve">
+    <value>Failed to copy {0} to {1}</value>
+  </data>
+  <data name="FailedCopyFromFilesAndDirectoriesTo" xml:space="preserve">
+    <value>Failed to copy {0} files and {1} directories to {2}</value>
+  </data>
+  <data name="FailedToDeleteFileFromTo" xml:space="preserve">
+    <value>Failed to delete {0} from {1}</value>
+  </data>
+  <data name="FailedToDeleteFilesAndDirectoriesFrom" xml:space="preserve">
+    <value>Failed to delete {0} files and {1} directories from {2}</value>
+  </data>
+  <data name="FailedToMoveFileFromTo" xml:space="preserve">
+    <value>Failed to move {0} to {1}</value>
+  </data>
+  <data name="FailedToMoveFilesAndDirectoriesTo" xml:space="preserve">
+    <value>Failed to move {0} files and {1} directories to {2}</value>
+  </data>
+  <data name="FileHeader" xml:space="preserve">
+    <value>_File</value>
+  </data>
+  <data name="FileInformationTitle" xml:space="preserve">
+    <value>File information</value>
+  </data>
+  <data name="FilesRemovingConfirmationTitle" xml:space="preserve">
+    <value>Confirm removal of files</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="HelpHeader" xml:space="preserve">
+    <value>_Help</value>
+  </data>
+  <data name="LanguageWithColon" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="LastAccessWithColon" xml:space="preserve">
+    <value>Last access:</value>
+  </data>
+  <data name="LastModificationWithColon" xml:space="preserve">
+    <value>Last modification:</value>
+  </data>
+  <data name="LastModified" xml:space="preserve">
+    <value>Last modified</value>
+  </data>
+  <data name="Maintainers" xml:space="preserve">
+    <value>Maintainers</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <data name="MovedFileFromTo" xml:space="preserve">
+    <value>Moved {0} to {1}</value>
+  </data>
+  <data name="MovedFilesFromAndDirectoriesTo" xml:space="preserve">
+    <value>Moved {0} files and {1} directories to {2}</value>
+  </data>
+  <data name="MovingFileFromTo" xml:space="preserve">
+    <value>Moving {0} to {1}</value>
+  </data>
+  <data name="MovingFromFilesAndDirectoriesTo" xml:space="preserve">
+    <value>Moving {0} files and {1} directories to {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NewDirectory" xml:space="preserve">
+    <value>New Directory</value>
+  </data>
+  <data name="NewTab" xml:space="preserve">
+    <value>New tab</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="OriginalFile" xml:space="preserve">
+    <value>Original file</value>
+  </data>
+  <data name="OverwriteOptionsTitle" xml:space="preserve">
+    <value>Overwrite options</value>
+  </data>
+  <data name="PathWithColon" xml:space="preserve">
+    <value>Path:</value>
+  </data>
+  <data name="PermanentlyRemoveFiles" xml:space="preserve">
+    <value>Do you want to permanently remove these {0} files?</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="RemovingFileFromTo" xml:space="preserve">
+    <value>Removing {0} from {1}</value>
+  </data>
+  <data name="RemovingFilesAndDirectoriesFrom" xml:space="preserve">
+    <value>Removing {0} files and {1} directories from {2}</value>
+  </data>
+  <data name="RemovingFilesToTrash" xml:space="preserve">
+    <value>Do you want to remove these {0} files to trash?</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="Replace" xml:space="preserve">
+    <value>Replace</value>
+  </data>
+  <data name="ReplaceFile" xml:space="preserve">
+    <value>Replace file</value>
+  </data>
+  <data name="ReplaceFileDestinationDirectory" xml:space="preserve">
+    <value>Another file with the same name already exists in "{0}" Do you want to replace it?</value>
+  </data>
+  <data name="ReplaceIfOlder" xml:space="preserve">
+    <value>Replace if older</value>
+  </data>
+  <data name="ReplaceWith" xml:space="preserve">
+    <value>Replace with</value>
+  </data>
+  <data name="SelectFromFilesAndDirectories" xml:space="preserve">
+    <value>{0} files ({1}) and {2} directories</value>
+  </data>
+  <data name="SelectNewNameForDestination" xml:space="preserve">
+    <value>Select a new name for the destination</value>
+  </data>
+  <data name="SettingsHeader" xml:space="preserve">
+    <value>_Settings</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ShowProperties" xml:space="preserve">
+    <value>Show properties</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="SizeWithColon" xml:space="preserve">
+    <value>Size:</value>
+  </data>
+  <data name="Skip" xml:space="preserve">
+    <value>Skip</value>
+  </data>
+  <data name="Terminal" xml:space="preserve">
+    <value>Terminal</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchForFilesAndDirectories" xml:space="preserve">
+    <value>Search for files and directories</value>
+  </data>
+  <data name="InvalidRegex" xml:space="preserve">
+    <value>Invalid regular expression</value>
+  </data>
+  <data name="TotalSpaceWithColon" xml:space="preserve">
+    <value>Total space:</value>
+  </data>
+  <data name="AvailableSpaceWithColon" xml:space="preserve">
+    <value>Available space:</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="CreateFileTitle" xml:space="preserve">
+    <value>Create file</value>
+  </data>
+  <data name="EnterFileNameWithColon" xml:space="preserve">
+    <value>Enter filename:</value>
+  </data>
+  <data name="ClickToMount" xml:space="preserve">
+    <value>Click to mount</value>
+  </data>
+  <data name="Pack" xml:space="preserve">
+    <value>Pack</value>
+  </data>
+  <data name="Extract" xml:space="preserve">
+    <value>Extract</value>
+  </data>
+  <data name="ExtractingArchiveTo" xml:space="preserve">
+    <value>Extracting {0} to {1}</value>
+  </data>
+  <data name="PackingFilesAndDirectoriesTo" xml:space="preserve">
+    <value>Packing {0} files and {1} directories to (2)</value>
+  </data>
+  <data name="PackingFileTo" xml:space="preserve">
+    <value>Packing file {0} to {1}</value>
+  </data>
+  <data name="ExtractedArchiveTo" xml:space="preserve">
+    <value>Extracted archive {0} to {1}</value>
+  </data>
+  <data name="PackedFileTo" xml:space="preserve">
+    <value>Packed file {0} to {1}</value>
+  </data>
+  <data name="PackedFilesAndDirectoriesTo" xml:space="preserve">
+    <value>Packed {0} files and {1} directories to {2}</value>
+  </data>
+  <data name="ExtractArchiveHere" xml:space="preserve">
+    <value>Extract archive here</value>
+  </data>
+  <data name="ExtractArchiveToNewDirectory" xml:space="preserve">
+    <value>Extract archive to new directory</value>
+  </data>
+  <data name="SelectDirectoryForExtraction" xml:space="preserve">
+    <value>Select directory for extraction</value>
+  </data>
+  <data name="PackFilesTitle" xml:space="preserve">
+    <value>Pack files</value>
+  </data>
+  <data name="PackToTheFileWithColon" xml:space="preserve">
+    <value>Pack to the file:</value>
+  </data>
+  <data name="CreateArchive" xml:space="preserve">
+    <value>Create archive</value>
+  </data>
+  <data name="FailedToExtractArchiveTo" xml:space="preserve">
+    <value>Failed to extract archive {0} to {1}</value>
+  </data>
+  <data name="FailedToPackTo" xml:space="preserve">
+    <value>Failed to pack {0} to {1}</value>
+  </data>
+  <data name="FailedToPackFilesAndDirectoriesTo" xml:space="preserve">
+    <value>Failed to pack {0} files and {1} directories to {2}</value>
+  </data>
+  <data name="OpenWith" xml:space="preserve">
+    <value>Open with</value>
+  </data>
+  <data name="OpenWithTitle" xml:space="preserve">
+    <value>Open with</value>
+  </data>
+  <data name="OpeningFiles" xml:space="preserve">
+    <value>Opening "{0}" files</value>
+  </data>
+  <data name="RecommendedApplications" xml:space="preserve">
+    <value>Recommended Applications</value>
+  </data>
+  <data name="SelectOtherApplications" xml:space="preserve">
+    <value>Other Applications</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="SetAsDefaultApplication" xml:space="preserve">
+    <value>Set as default</value>
+  </data>
+  <data name="SearchForApplications" xml:space="preserve">
+    <value>Search for applications</value>
+  </data>
+  <data name="EnterNewNameWithColon" xml:space="preserve">
+    <value>Enter new name:</value>
+  </data>
+  <data name="ThemeWithColon" xml:space="preserve">
+    <value>Theme:</value>
+  </data>
+  <data name="DarkThemeName" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="LightThemeName" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Unmount" xml:space="preserve">
+    <value>Unmount</value>
+  </data>
+  <data name="Eject" xml:space="preserve">
+    <value>Eject</value>
+  </data>
+  <data name="DuplicateOnOppositePanel" xml:space="preserve">
+    <value>Duplicate on opposite panel</value>
+  </data>
+  <data name="OpenInNewTab" xml:space="preserve">
+    <value>Open in new tab</value>
+  </data>
+  <data name="OpenInNewTabOnOppositePanel" xml:space="preserve">
+    <value>Open in new tab on other panel</value>
+  </data>
+  <data name="CaseSensitive" xml:space="preserve">
+    <value>Case sensitive</value>
+  </data>
+  <data name="CloseSearchPanel" xml:space="preserve">
+    <value>Close search panel</value>
+  </data>
+  <data name="Recursive" xml:space="preserve">
+    <value>Recursive</value>
+  </data>
+  <data name="RegularExpression" xml:space="preserve">
+    <value>Regular expression</value>
+  </data>
+  <data name="InnerFilesWithColon" xml:space="preserve">
+    <value>Inner files:</value>
+  </data>
+  <data name="InnerDirectoriesWithColon" xml:space="preserve">
+    <value>Inner directories:</value>
+  </data>
+  <data name="PasteFromClipboard" xml:space="preserve">
+    <value>Paste from clipboard</value>
+  </data>
+  <data name="AccessDeniedTitle" xml:space="preserve">
+    <value>Access denied</value>
+  </data>
+  <data name="AccessToDirectoryIsDenied" xml:space="preserve">
+    <value>Access to directory {0} is denied</value>
+  </data>
+  <data name="MountPointWithColon" xml:space="preserve">
+    <value>Mount point:</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="GoBack" xml:space="preserve">
+    <value>Go back</value>
+  </data>
+  <data name="GoForward" xml:space="preserve">
+    <value>Go forward</value>
+  </data>
+  <data name="UnmarkAsFavourite" xml:space="preserve">
+    <value>Unmark as favourite</value>
+  </data>
+  <data name="MarkAsFavourite" xml:space="preserve">
+    <value>Mark as favourite</value>
+  </data>
+  <data name="GoToParentDirectory" xml:space="preserve">
+    <value>Go to parent directory</value>
+  </data>
+  <data name="Icons" xml:space="preserve">
+    <value>Icons</value>
+  </data>
+  <data name="FilesIconsWithColon" xml:space="preserve">
+    <value>Files icons:</value>
+  </data>
+  <data name="ChangesRequireRestart" xml:space="preserve">
+    <value>Changes requires restart of application to take effect.</value>
+  </data>
+  <data name="SupportedOnWindowsOnly" xml:space="preserve">
+    <value>* Supported on Windows only</value>
+  </data>
+</root>

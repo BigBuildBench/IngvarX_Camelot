@@ -1,0 +1,24 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:Camelot.Properties"
+        xmlns:properties="clr-namespace:Camelot.ViewModels.Implementations.Dialogs.Properties;assembly=Camelot.ViewModels"
+        xmlns:controls="clr-namespace:Camelot.Views.Main.Controls"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Camelot.Views.Dialogs.FileInformationDialog"
+        Width="600" Height="400"
+        Title="{x:Static p:Resources.FileInformationTitle}">
+
+    <Design.DataContext>
+        <properties:FileInformationDialogViewModel />
+    </Design.DataContext>
+
+    <Border Padding="20">
+        <TabControl Classes="propertiesDialogTabControl">
+            <TabItem Header="{x:Static p:Resources.General}">
+                <controls:MainNodeInfoTabView DataContext="{Binding MainNodeInfoTabViewModel}" />
+            </TabItem>
+        </TabControl>
+    </Border>
+</Window>

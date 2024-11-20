@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:favouriteDirectories="clr-namespace:Camelot.ViewModels.Implementations.MainWindow.FavouriteDirectories;assembly=Camelot.ViewModels"
+             xmlns:favouriteDirectoriesViews="clr-namespace:Camelot.Views.Main.FavouriteDirectories"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Camelot.Views.Main.FavouriteDirectories.FavouriteDirectoriesListView">
+
+    <Design.DataContext>
+        <favouriteDirectories:FavouriteDirectoriesListViewModel />
+    </Design.DataContext>
+
+    <Grid ColumnDefinitions="Auto,*,Auto,10" Classes="defaultBackgroundColorGrid">
+        <Button Name="LeftArrowButton"
+            Classes="iconButton tabScrollButton" Click="LeftButtonOnClick">
+            <Image Width="20" Height="20">
+                <Image.Source>
+                    <DrawingImage>
+                        <DrawingImage.Drawing>
+                            <GeometryDrawing Brush="{DynamicResource MainWindowForegroundBrush}"
+                                             Geometry="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/>
+                        </DrawingImage.Drawing>
+                    </DrawingImage>
+                </Image.Source>
+            </Image>
+        </Button>
+
+        <ScrollViewer Name="FavDirsScrollViewer"
+                      Grid.Column="0" Grid.ColumnSpan="3"
+                      ScrollChanged="ScrollViewerOnScrollChanged"
+                      Classes="arrowScrollViewer">
+            <ItemsControl Items="{Binding Directories}"
+                          Margin="0,8,8,3">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <favouriteDirectoriesViews:FavouriteDirectoryView />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <Button Grid.Column="2" Name="RightArrowButton"
+                Classes="iconButton tabScrollButton" Click="RightButtonOnClick">
+            <Image Width="20" Height="20">
+                <Image.Source>
+                    <DrawingImage>
+                        <DrawingImage.Drawing>
+                            <GeometryDrawing Brush="{DynamicResource MainWindowForegroundBrush}"
+                                             Geometry="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" />
+                        </DrawingImage.Drawing>
+                    </DrawingImage>
+                </Image.Source>
+            </Image>
+
+        </Button>
+    </Grid>
+</UserControl>
